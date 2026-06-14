@@ -1,0 +1,268 @@
+[
+  {
+    "slug": "docker-desktop-startup-issue",
+    "title": "Docker Desktop 시작/표시 오류",
+    "category": "incidents",
+    "path": "wiki/incidents/docker-desktop-startup-issue.md",
+    "tags": [
+      "docker",
+      "desktop",
+      "windows",
+      "hyper-v",
+      "virtualization",
+      "access-denied",
+      "port"
+    ],
+    "symptoms": [
+      "Docker Desktop - Access Denied",
+      "Wsl/Service/RegisterDistro/CreateVm/HCS/HCS_E_HYPERV_NOT_INSTALLED",
+      "Docker Desktop UI 녹색/왜곡/아티팩트",
+      "Docker Desktop을 시작하려고 할 때 위 팝업이 나타나며 앱이 실행되지 않음.",
+      "Docker Desktop 앱을 열었을 때 UI가 아래 중 하나로 나타남",
+      "화면 전체가 녹색으로 덮임",
+      "UI 요소가 왜곡되거나 깨져서 보임",
+      "잔상(artifact)이 남거나 렌더링이 제대로 되지 않음"
+    ],
+    "case_count": 3,
+    "source_paths": [
+      "raw/sources/docker-desktop-access-denied-windows.md",
+      "raw/sources/docker-desktop-ui-visual-artifacts.md",
+      "raw/sources/docker-desktop-virtualization-disabled.md"
+    ],
+    "status": "draft",
+    "updated_at": "2026-06-15"
+  },
+  {
+    "slug": "docker-private-registry-tls-configuration-failure",
+    "title": "Docker Private Registry TLS Configuration Failure",
+    "category": "incidents",
+    "path": "wiki/incidents/docker-private-registry-tls-configuration-failure.md",
+    "tags": [
+      "docker",
+      "registry",
+      "tls",
+      "certificate",
+      "insecure-registry",
+      "desktop",
+      "self-signed",
+      "port"
+    ],
+    "symptoms": [
+      "malformed HTTP response \"\\x15\\x03\\x01...\"",
+      "private registry pull/push failure",
+      "Docker registry TLS handshake mismatch",
+      "Error response from daemon: Get http://192.168.203.139:5858/v2/: malformed HTTP response \"\\x15\\x03\\x01\\x00\\x02\\x02\"",
+      "private registry에서 이미지를 pull하거나 push할 때 위와 같은 응답 파싱 오류가 발생하며 연결 실패.",
+      "Error response from daemon: Get \"https://192.168.203.139:5858/v2/\": http: server gave HTTP response to HTTPS client"
+    ],
+    "case_count": 2,
+    "source_paths": [
+      "raw/sources/docker-certificate-config-error.md",
+      "raw/sources/docker-registry-http-https-mismatch-log.md"
+    ],
+    "status": "draft",
+    "updated_at": "2026-06-15"
+  },
+  {
+    "slug": "docker-volume-mount-runtime-error",
+    "title": "Docker 볼륨 마운트 시 런타임 오류 또는 파일 접근 실패",
+    "category": "incidents",
+    "path": "wiki/incidents/docker-volume-mount-runtime-error.md",
+    "tags": [
+      "docker",
+      "volume",
+      "mount",
+      "file-sharing",
+      "container",
+      "desktop",
+      "port"
+    ],
+    "symptoms": [
+      "Error response from daemon: Mounts denied",
+      "The path is not shared from the host and is not known to Docker.",
+      "Permission denied",
+      "open /app/data/file.txt: no such file or directory"
+    ],
+    "case_count": 1,
+    "source_paths": [
+      "raw/sources/docker-volume-mount-runtime-error.md"
+    ],
+    "status": "draft",
+    "updated_at": "2026-06-15"
+  },
+  {
+    "slug": "ec2-instance-system-error",
+    "title": "EC2 Instance System Error",
+    "category": "incidents",
+    "path": "wiki/incidents/ec2-instance-system-error.md",
+    "tags": [
+      "ec2",
+      "kernel",
+      "filesystem",
+      "memory",
+      "selinux",
+      "volume",
+      "boot",
+      "port"
+    ],
+    "symptoms": [
+      "Out of memory: kill process",
+      "I/O error, dev sde",
+      "FATAL: kernel too old",
+      "Unable to load SELinux Policy. Machine is in enforcing mode. Halting now.",
+      "Device eth0 has different MAC address than expected, ignoring.",
+      "EC2 콘솔에서 인스턴스 상태 체크 실패 (System status check failed 또는 Instance status check failed) 표시.",
+      "[9943662.053217] end_request: I/O error, dev sde, sector 52428288",
+      "[9943664.191262] end_request: I/O error, dev sde, sector 52428168",
+      "[9943664.191285] Buffer I/O error on device md0, logical block 209713024",
+      "[9943664.191297] Buffer I/O error on device md0, logical block 209713025",
+      "*** An error occurred during the file system check.",
+      "failed (code 8).",
+      "[FAILED]",
+      "FATAL: Could not load /lib/modules/2.6.34-4-virtual/modules.dep: No such file or directory",
+      "EC2 콘솔에서 인스턴스 상태 체크 실패 (Instance status check failed) 표시.",
+      "[115879.769795] Out of memory: kill process 20273 (httpd) score 1285879 or a child",
+      "[ec2-user ~]$ sudo e2label /dev/xvda1"
+    ],
+    "case_count": 7,
+    "source_paths": [
+      "raw/sources/ec2-block-device-io-error.md",
+      "raw/sources/ec2-filesystem-not-found-fsck.md",
+      "raw/sources/ec2-hardcoded-mac-address.md",
+      "raw/sources/ec2-kernel-too-old-mismatch.md",
+      "raw/sources/ec2-out-of-memory-kill-process.md",
+      "raw/sources/ec2-selinux-misconfiguration.md",
+      "raw/sources/instance-booting-from-wrong-volume.md"
+    ],
+    "status": "draft",
+    "updated_at": "2026-06-15"
+  },
+  {
+    "slug": "ec2-ssh-connection-failure",
+    "title": "EC2 SSH Connection Failure",
+    "category": "incidents",
+    "path": "wiki/incidents/ec2-ssh-connection-failure.md",
+    "tags": [
+      "ec2",
+      "ssh",
+      "key",
+      "connection",
+      "publickey",
+      "port"
+    ],
+    "symptoms": [
+      "Permission denied (publickey)",
+      "Network error: Connection timed out",
+      "Host key verification failed",
+      "WARNING: UNPROTECTED PRIVATE KEY FILE!",
+      "@ WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED! @",
+      "Host key verification failed.",
+      "SSH 키 파일(`.pem`)을 분실하여 인스턴스에 접근 불가. 명시적 에러는 없으나 인스턴스에 접근할 방법이 없는 상태.",
+      "Permission denied (publickey).",
+      "Authentication failed, permission denied",
+      "또는",
+      "@ WARNING: UNPROTECTED PRIVATE KEY FILE! @"
+    ],
+    "case_count": 5,
+    "source_paths": [
+      "raw/sources/ec2-ssh-connection-timed-out.md",
+      "raw/sources/ec2-ssh-host-key-verification-failed.md",
+      "raw/sources/ec2-ssh-lost-private-key.md",
+      "raw/sources/ec2-ssh-permission-denied.md",
+      "raw/sources/ec2-ssh-unprotected-key-file.md"
+    ],
+    "status": "draft",
+    "updated_at": "2026-06-15"
+  },
+  {
+    "slug": "github-actions-workflow-issue",
+    "title": "GitHub Actions Workflow Issue",
+    "category": "incidents",
+    "path": "wiki/incidents/github-actions-workflow-issue.md",
+    "tags": [
+      "github",
+      "github-actions",
+      "workflow",
+      "runner",
+      "ci-cd"
+    ],
+    "symptoms": [
+      "워크플로우가 트리거되지 않음",
+      "취소(Cancel) 후에도 잡이 계속 실행됨",
+      "의도하지 않은 러너에서 잡이 실행됨",
+      "GitHub UI 또는 API로 워크플로우 실행을 취소(Cancel)했으나, 잡(job)이 계속 실행됨. 취소 요청 후에도 실행이 끝나지 않아 무한 대기 상태가 지속됨.",
+      "명시적인 에러 없이, 잡이 예상한 러너(self-hosted runner 또는 특정 GitHub-hosted runner)가 아닌 다른 러너에서 실행됨. 환경 차이로 인해 잡이 실패하거나 예상과 다른 결과 발생.",
+      "에러 메시지 없이 push 또는 pull request 이후 워크플로우 실행이 생성되지 않음. GitHub Actions 탭에 실행 기록이 나타나지 않거나 \"skipped\" 상태로 표시됨."
+    ],
+    "case_count": 3,
+    "source_paths": [
+      "raw/sources/github-actions-always-prevents-cancellation.md",
+      "raw/sources/github-actions-runner-label-conflict.md",
+      "raw/sources/github-actions-workflow-not-triggered.md"
+    ],
+    "status": "draft",
+    "updated_at": "2026-06-15"
+  },
+  {
+    "slug": "kubernetes-cluster-issue",
+    "title": "Kubernetes Cluster Issue",
+    "category": "incidents",
+    "path": "wiki/incidents/kubernetes-cluster-issue.md",
+    "tags": [
+      "kubernetes",
+      "k8s",
+      "cluster",
+      "node",
+      "kubelet",
+      "apiserver",
+      "tls",
+      "certificate",
+      "port"
+    ],
+    "symptoms": [
+      "Node NotReady",
+      "Kubelet stopped posting node status.",
+      "The connection to the server :6443 was refused",
+      "The connection to the server <apiserver>:6443 was refused - did you specify the right host or port?",
+      "Unable to connect to the server: EOF",
+      "dial tcp <ip>:6443: connect: connection refused",
+      "kube-worker-1 NotReady <none> 1h v1.23.3"
+    ],
+    "case_count": 2,
+    "source_paths": [
+      "raw/sources/k8s-api-server-unreachable.md",
+      "raw/sources/k8s-node-notready-kubelet-stopped.md"
+    ],
+    "status": "draft",
+    "updated_at": "2026-06-15"
+  },
+  {
+    "slug": "port-binding-conflict",
+    "title": "Port Binding Conflict",
+    "category": "incidents",
+    "path": "wiki/incidents/port-binding-conflict.md",
+    "tags": [
+      "port",
+      "bind",
+      "networking",
+      "docker",
+      "nginx",
+      "spring-boot",
+      "desktop",
+      "container"
+    ],
+    "symptoms": [
+      "port is already allocated",
+      "address already in use",
+      "bind failed",
+      "EADDRINUSE",
+      "Bind for 0.0.0.0:8080 failed: port is already allocated"
+    ],
+    "case_count": 1,
+    "source_paths": [
+      "raw/sources/docker-port-already-allocated.md"
+    ],
+    "status": "draft",
+    "updated_at": "2026-06-15"
+  }
+]

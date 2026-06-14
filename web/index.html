@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Infra Error Archive</title>
+  <link rel="stylesheet" href="/web/style.css?v=20260615-divider-after-content">
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="mark" aria-hidden="true">IA</div>
+        <div>
+          <h1>Infra Error Archive</h1>
+          <p id="viewerStatus">위키 인덱스를 불러오는 중</p>
+        </div>
+      </div>
+      <div class="status"><span class="pulse" aria-hidden="true"></span><span>Viewer</span></div>
+    </header>
+
+    <main class="workspace" id="workspace">
+      <aside class="sidebar">
+        <div class="pane-head">
+          <div class="pane-title-row">
+            <p class="pane-title"><span class="full-title">문제 유형 목록</span><span class="mini-title">유형</span></p>
+            <button class="collapse-button" id="toggleLeft" type="button" aria-label="왼쪽 패널 접기" aria-expanded="true">‹</button>
+          </div>
+          <div class="search-row">
+            <input id="search" type="search" placeholder="오류 메시지, 증상, 태그 검색">
+            <button class="icon-button" id="resetSearch" title="검색 초기화" aria-label="검색 초기화">
+              <svg class="refresh-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20 11a8 8 0 0 0-14.1-5.2L4 7.7V3H2v8h8V9H5.4l1.9-1.9A6 6 0 0 1 18 11h2Z"></path>
+                <path d="M4 13a8 8 0 0 0 14.1 5.2l1.9-1.9V21h2v-8h-8v2h4.6l-1.9 1.9A6 6 0 0 1 6 13H4Z"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="list" id="pageList" aria-live="polite"></div>
+      </aside>
+
+      <section class="reader">
+        <div class="pane-head reader-toolbar">
+          <div>
+            <p class="pane-title">문제 유형 상세</p>
+            <p class="path-label" id="pagePath">선택한 문제 유형 없음</p>
+          </div>
+        </div>
+        <div class="reader-body">
+          <article id="article">
+            <p class="empty">문제 유형을 선택하세요.</p>
+          </article>
+        </div>
+      </section>
+
+      <aside class="agent">
+        <div class="pane-head">
+          <div class="pane-title-row">
+            <p class="pane-title"><span class="full-title">현재 오류 분석</span><span class="mini-title">분석</span></p>
+            <button class="collapse-button" id="toggleRight" type="button" aria-label="오른쪽 패널 접기" aria-expanded="true">›</button>
+          </div>
+          <div class="agent-form">
+            <textarea id="errorInput" placeholder="예: nginx 502 bad gateway while connecting to upstream 127.0.0.1:8080"></textarea>
+            <div class="agent-actions">
+              <button class="primary" id="runAgent">에러 분석 실행</button>
+            </div>
+          </div>
+        </div>
+        <div class="result-box" id="agentResult"></div>
+        <div class="conversation" id="conversationLog" aria-live="polite"></div>
+      </aside>
+    </main>
+  </div>
+
+  <script src="/web/app.js?v=20260615-divider-after-content"></script>
+</body>
+</html>
